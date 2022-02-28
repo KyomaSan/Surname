@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />https://github.com/KyomaSan/Surname.github.io/blob/main/index.html
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>没做适配,请用电脑打开---算姓氏</title>
-   <script src="./vue.js"></script>
+    <title>算姓氏</title>
+    <script src="./vue.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
@@ -53,7 +53,7 @@
             background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
             background-repeat: no-repeat;
             background-size: cover;
-            height: 80vh;
+            height: 80%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,6 +71,8 @@
             justify-content: center;
             align-items: center;
             transform: translateZ(20px);
+            width: 100%;
+            height: 100%;
             /* backface-visibility: hidden; */
         }
         
@@ -89,13 +91,13 @@
         }
         
         .switch {
-            width: 100px;
+            width: 77px;
             height: 20px;
             background-color: white;
             position: fixed;
             z-index: 999;
             top: 0;
-            left: 0;
+            left: 17px;
             border-radius: 20px;
         }
         
@@ -116,22 +118,27 @@
         input[type="radio"] {
             margin-left: 130px;
         }
+        
+        section>div>div {
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <label>
-        <!-- style="display: none" 隐藏了勾选框 -->
-      <input type="checkbox" id="toggle" style="display: none" />
+
+
+    <div id="app" class="row">
+        <label>
+    <!-- style="display: none" 隐藏了勾选框 -->
+      <input type="checkbox" id="toggle" style="display: none"  @change="toggle"/>
       <div class="switch">
         <span></span>
       </div>
     </label>
-
-    <div id="app" class="row">
         <div class="col-xs-4 col-xs-offset-4 card">
 
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="one">
                     <table border="1" v-for=" (item,index) in card1">
                         <tr>
@@ -173,15 +180,15 @@
                             </td>
                         </tr>
                     </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(1/7)</div>
-                    <p style="color: seashell;font-size: 18px;">这一张有你的姓氏吗?</p>
+                    <div style="color: red;font-size: 24px;text-align: center; width: 100%;">(1/7)</div>
+                    <p style="color: seashell;font-size: 18px;width:100%;">这一张有你的姓氏吗?</p>
                     <input type="radio" name="one" value="1"><span style="color: white; display: inline-block;">有</span>
                     <input type="radio" name="one" value="0"><span style="color: white; display: inline-block;">无</span>
 
                 </div>
 
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="one">
                     <table border="1" v-for=" (item,index) in card1">
                         <tr>
@@ -231,7 +238,7 @@
             </section>
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="two">
                     <table border="1">
                         <tr>
@@ -303,7 +310,7 @@
                     <input type="radio" name="two" value="0"><span style="color: white; display: inline-block;">无</span>
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="two">
                     <table border="1">
                         <tr>
@@ -378,7 +385,7 @@
 
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="three">
                     <table border="1" v-for=" (item,index) in card3">
                         <tr>
@@ -426,7 +433,7 @@
                     <input type="radio" name="three" value="0"><span style="color: white; display: inline-block;">无</span>
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="three">
                     <table border="1" v-for=" (item,index) in card3">
                         <tr>
@@ -478,7 +485,7 @@
 
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="four">
                     <table border="1">
                         <tr v-for="index in card4">
@@ -527,7 +534,7 @@
                     <input type="radio" name="four" value="0"><span style="color: white; display: inline-block;">无</span>
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="four">
                     <table border="1">
                         <tr v-for="index in card4">
@@ -580,7 +587,7 @@
 
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="five">
                     <table border="1">
                         <tr v-for="index in card5">
@@ -629,7 +636,7 @@
                     <input type="radio" name="five" value="0"><span style="color: white; display: inline-block;">无</span>
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="five">
                     <table border="1">
                         <tr v-for="index in card5">
@@ -683,7 +690,7 @@
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
 
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="six">
                     <table border="1">
                         <tr v-for="index in card6">
@@ -731,7 +738,7 @@
                     <input type="radio" name="six" value="0"><span style="color: white; display: inline-block;">无</span>
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="six">
                     <table border="1">
                         <tr v-for="index in card6">
@@ -784,7 +791,7 @@
         </div>
         <div class="col-xs-4 col-xs-offset-4 card">
 
-            <section class="positive">
+            <section class="positive" v-if="view">
                 <div class="seven">
                     <table border="1">
                         <tr v-for="index in card7">
@@ -836,7 +843,7 @@
 
                 </div>
             </section>
-            <section class="back">
+            <section class="back" v-if="seen">
                 <div class="seven">
                     <table border="1">
                         <tr v-for="index in card7">
@@ -973,7 +980,9 @@
                     "裴", "荣", "翁", "荀", "羊", "於", "惠", "甄", "麴",
                     "家", "封", "芮", "羿", "储", "靳", "汲", "邴", "糜",
                     "松", "井", "富", "巫", "乌", "焦", "巴", "弓", "第五"
-                ]
+                ],
+                seen: false,
+                view: true,
 
             },
             methods: {
@@ -1073,7 +1082,24 @@
                                        
                     我选了6个  只有  第一个  为空,是NaN,所以和必然 为NAN,则undefine
                                        */
+                },
+                toggle: function() {
 
+
+                    if ($("#toggle").prop("checked")) {
+
+                        $(".card").addClass("active");
+                        $(".switch").addClass("active");
+
+                        this.seen = !this.seen;
+
+                    } else {
+                        $(".card").removeClass("active");
+                        $(".switch").removeClass("active");
+
+                        this.seen = !this.seen;
+
+                    }
 
                 }
             }
@@ -1109,17 +1135,11 @@
         // "姜", "申", "华", "尹", "邱", "殷", "常", "柯", "牛",
         // "莫", "祁", "聂", "康", "倪", "梅", "水", "艾", "岳",
         // "廖", "翟", "邬", "季", "花", "左", "桂", "龙", "陆"
-        $("#toggle").change(function() {
-            // console.log($('#toggle'));
-            // console.log($("#toggle").prop("checked"));
-            if ($("#toggle").prop("checked")) {
-                $(".card").addClass("active");
-                $(".switch").addClass("active");
-            } else {
-                $(".card").removeClass("active");
-                $(".switch").removeClass("active");
-            }
-        });
+        // $("#toggle").change(function() {
+        //     // console.log($('#toggle'));
+        //     // console.log($("#toggle").prop("checked"));
+
+        // });
     </script>
 
 </body>
