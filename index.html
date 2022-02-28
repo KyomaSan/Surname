@@ -97,7 +97,7 @@
             position: fixed;
             z-index: 999;
             top: 0;
-            left: 17px;
+            left: 0px;
             border-radius: 20px;
         }
         
@@ -112,7 +112,7 @@
         }
         
         .switch.active span {
-            transform: translateX(80px) rotateZ(360deg);
+            transform: translateX(57px) rotateZ(360deg);
         }
         
         input[type="radio"] {
@@ -126,777 +126,778 @@
 </head>
 
 <body>
-
-
-    <div id="app" class="row">
+    <div id="app">
         <label>
-    <!-- style="display: none" 隐藏了勾选框 -->
-      <input type="checkbox" id="toggle" style="display: none"  @change="toggle"/>
-      <div class="switch">
-        <span></span>
-      </div>
-    </label>
-        <div class="col-xs-4 col-xs-offset-4 card">
+        <!-- style="display: none" 隐藏了勾选框 -->
+           <input  type="checkbox" id="toggle" style="display: none; "  @change="toggle"/>
+           <div class="switch" >
+             <span></span>
+           </div>
+         </label>
+        <div class="row">
 
-            <section class="positive" v-if="view">
-                <div class="one">
-                    <table border="1" v-for=" (item,index) in card1">
-                        <tr>
-                            <td>
-                                <p>{{item}}</p>
-                                <span>{{surname[item]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+2}}</p>
-                                <span>{{surname[item+2]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+4}}</p>
-                                <span>{{surname[item+4]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+6}}</p>
-                                <span>{{surname[item+6]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+8}}</p>
-                                <span>{{surname[item+8]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+10}}</p>
-                                <span>{{surname[item+10]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+12}}</p>
-                                <span>{{surname[item+12]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+14}}</p>
-                                <span>{{surname[item+14]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+16}}</p>
-                                <span>{{surname[item+16]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center; width: 100%;">(1/7)</div>
-                    <p style="color: seashell;font-size: 18px;width:100%;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="one" value="1"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="one" value="0"><span style="color: white; display: inline-block;">无</span>
+            <div class="col-xs-4 col-xs-offset-4 card">
 
-                </div>
+                <section class="positive">
+                    <div class="one">
+                        <table border="1" v-for=" (item,index) in card1">
+                            <tr>
+                                <td>
+                                    <p>{{item}}</p>
+                                    <span>{{surname[item]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+2}}</p>
+                                    <span>{{surname[item+2]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+4}}</p>
+                                    <span>{{surname[item+4]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+6}}</p>
+                                    <span>{{surname[item+6]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+8}}</p>
+                                    <span>{{surname[item+8]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+10}}</p>
+                                    <span>{{surname[item+10]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+12}}</p>
+                                    <span>{{surname[item+12]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+14}}</p>
+                                    <span>{{surname[item+14]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+16}}</p>
+                                    <span>{{surname[item+16]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center; width: 100%;">(1/7)</div>
+                        <p style="color: seashell;font-size: 18px;width:100%;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="one" value="1"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="one" value="0"><span style="color: white; display: inline-block;">无</span>
 
-            </section>
-            <section class="back" v-if="seen">
-                <div class="one">
-                    <table border="1" v-for=" (item,index) in card1">
-                        <tr>
-                            <td>
-                                <p>{{item}}</p>
-                                <span>{{surname_back[item]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+2}}</p>
-                                <span>{{surname_back[item+2]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+4}}</p>
-                                <span>{{surname_back[item+4]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+6}}</p>
-                                <span>{{surname_back[item+6]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+8}}</p>
-                                <span>{{surname_back[item+8]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+10}}</p>
-                                <span>{{surname_back[item+10]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+12}}</p>
-                                <span>{{surname_back[item+12]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+14}}</p>
-                                <span>{{surname_back[item+14]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+16}}</p>
-                                <span>{{surname_back[item+16]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(1/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="one_back" value="1"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="one_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
+                    </div>
+
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="one">
+                        <table border="1" v-for=" (item,index) in card1">
+                            <tr>
+                                <td>
+                                    <p>{{item}}</p>
+                                    <span>{{surname_back[item]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+2}}</p>
+                                    <span>{{surname_back[item+2]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+4}}</p>
+                                    <span>{{surname_back[item+4]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+6}}</p>
+                                    <span>{{surname_back[item+6]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+8}}</p>
+                                    <span>{{surname_back[item+8]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+10}}</p>
+                                    <span>{{surname_back[item+10]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+12}}</p>
+                                    <span>{{surname_back[item+12]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+14}}</p>
+                                    <span>{{surname_back[item+14]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+16}}</p>
+                                    <span>{{surname_back[item+16]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(1/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="one_back" value="1"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="one_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+                <section class="positive">
+                    <div class="two">
+                        <table border="1">
+                            <tr>
+                                <td v-for="index in card2_1">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td v-for="index in card2_2">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_3">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_4">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_5">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_6">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td v-for="index in card2_7">
+                                    <p>{{index}}</p>
+                                    <span>{{surname[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                        </table>
+
+                        <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="two" value="16"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="two" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="two">
+                        <table border="1">
+                            <tr>
+                                <td v-for="index in card2_1">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td v-for="index in card2_2">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_3">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_4">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_5">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+
+                                <td v-for="index in card2_6">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td v-for="index in card2_7">
+                                    <p>{{index}}</p>
+                                    <span>{{surname_back[index]}}</span>
+                                </td>
+
+
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="two_back" value="16"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="two_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+                <section class="positive">
+                    <div class="three">
+                        <table border="1" v-for=" (item,index) in card3">
+                            <tr>
+                                <td>
+                                    <p>{{item}}</p>
+                                    <span>{{surname[item]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+1}}</p>
+                                    <span>{{surname[item+1]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+2}}</p>
+                                    <span>{{surname[item+2]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+3}}</p>
+                                    <span>{{surname[item+3]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+4}}</p>
+                                    <span>{{surname[item+4]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+5}}</p>
+                                    <span>{{surname[item+5]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+6}}</p>
+                                    <span>{{surname[item+6]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+14}}</p>
+                                    <span>{{surname[item+7]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+8}}</p>
+                                    <span>{{surname[item+8]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="three" value="64"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="three" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="three">
+                        <table border="1" v-for=" (item,index) in card3">
+                            <tr>
+                                <td>
+                                    <p>{{item}}</p>
+                                    <span>{{surname_back[item]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+1}}</p>
+                                    <span>{{surname_back[item+1]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+2}}</p>
+                                    <span>{{surname_back[item+2]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+3}}</p>
+                                    <span>{{surname_back[item+3]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+4}}</p>
+                                    <span>{{surname_back[item+4]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+5}}</p>
+                                    <span>{{surname_back[item+5]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+6}}</p>
+                                    <span>{{surname_back[item+6]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+14}}</p>
+                                    <span>{{surname_back[item+7]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{item+8}}</p>
+                                    <span>{{surname_back[item+8]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="three_back" value="64"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="three_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+                <section class="positive">
+                    <div class="four">
+                        <table border="1">
+                            <tr v-for="index in card4">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname[index[8]]}}</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="four" value="2"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="four" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="four">
+                        <table border="1">
+                            <tr v-for="index in card4">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname_back[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname_back[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname_back[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname_back[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname_back[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname_back[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname_back[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname_back[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname_back[index[8]]}}</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="four_back" value="2"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="four_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+                <section class="positive">
+                    <div class="five">
+                        <table border="1">
+                            <tr v-for="index in card5">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname[index[8]]}}</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="five" value="32"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="five" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="five">
+                        <table border="1">
+                            <tr v-for="index in card5">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname_back[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname_back[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname_back[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname_back[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname_back[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname_back[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname_back[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname_back[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname_back[index[8]]}}</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="five_back" value="32"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="five_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+
+                <section class="positive">
+                    <div class="six">
+                        <table border="1">
+                            <tr v-for="index in card6">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname[index[8]]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="six" value="8"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="six" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="six">
+                        <table border="1">
+                            <tr v-for="index in card6">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname_back[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname_back[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname_back[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname_back[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname_back[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname_back[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname_back[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname_back[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname_back[index[8]]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="six_back" value="8"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="six_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="col-xs-4 col-xs-offset-4 card">
+
+                <section class="positive">
+                    <div class="seven">
+                        <table border="1">
+                            <tr v-for="index in card7">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname[index[8]]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="seven" value="4"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="seven" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <br>
+                        <button style="margin-left:35%;margin-top: 40px;" @click="caculate">点击得出你的姓氏</button>
+
+
+                    </div>
+                </section>
+                <section class="back" v-if="seen">
+                    <div class="seven">
+                        <table border="1">
+                            <tr v-for="index in card7">
+                                <td>
+                                    <p>{{index[0]}}</p>
+                                    <span>{{surname_back[index[0]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[1]}}</p>
+                                    <span>{{surname_back[index[1]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[2]}}</p>
+                                    <span>{{surname_back[index[2]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[3]}}</p>
+                                    <span>{{surname_back[index[3]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[4]}}</p>
+                                    <span>{{surname_back[index[4]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[5]}}</p>
+                                    <span>{{surname_back[index[5]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[6]}}</p>
+                                    <span>{{surname_back[index[6]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[7]}}</p>
+                                    <span>{{surname_back[index[7]]}}</span>
+                                </td>
+                                <td>
+                                    <p>{{index[8]}}</p>
+                                    <span>{{surname_back[index[8]]}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
+                        <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
+                        <input type="radio" name="seven_back" value="4"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="seven_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <br>
+                        <button style="margin-left:35%;margin-top: 40px;" @click="caculate_back">点击得出你的稀有姓氏</button>
+                    </div>
+                </section>
+
+
+            </div>
+
         </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive" v-if="view">
-                <div class="two">
-                    <table border="1">
-                        <tr>
-                            <td v-for="index in card2_1">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-                            <td v-for="index in card2_2">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_3">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_4">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_5">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_6">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-                            <td v-for="index in card2_7">
-                                <p>{{index}}</p>
-                                <span>{{surname[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                    </table>
-
-                    <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="two" value="16"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="two" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="two">
-                    <table border="1">
-                        <tr>
-                            <td v-for="index in card2_1">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-                            <td v-for="index in card2_2">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_3">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_4">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_5">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td v-for="index in card2_6">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-                            <td v-for="index in card2_7">
-                                <p>{{index}}</p>
-                                <span>{{surname_back[index]}}</span>
-                            </td>
-
-
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="two_back" value="16"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="two_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-
-
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive" v-if="view">
-                <div class="three">
-                    <table border="1" v-for=" (item,index) in card3">
-                        <tr>
-                            <td>
-                                <p>{{item}}</p>
-                                <span>{{surname[item]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+1}}</p>
-                                <span>{{surname[item+1]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+2}}</p>
-                                <span>{{surname[item+2]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+3}}</p>
-                                <span>{{surname[item+3]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+4}}</p>
-                                <span>{{surname[item+4]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+5}}</p>
-                                <span>{{surname[item+5]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+6}}</p>
-                                <span>{{surname[item+6]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+14}}</p>
-                                <span>{{surname[item+7]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+8}}</p>
-                                <span>{{surname[item+8]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="three" value="64"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="three" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="three">
-                    <table border="1" v-for=" (item,index) in card3">
-                        <tr>
-                            <td>
-                                <p>{{item}}</p>
-                                <span>{{surname_back[item]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+1}}</p>
-                                <span>{{surname_back[item+1]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+2}}</p>
-                                <span>{{surname_back[item+2]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+3}}</p>
-                                <span>{{surname_back[item+3]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+4}}</p>
-                                <span>{{surname_back[item+4]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+5}}</p>
-                                <span>{{surname_back[item+5]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+6}}</p>
-                                <span>{{surname_back[item+6]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+14}}</p>
-                                <span>{{surname_back[item+7]}}</span>
-                            </td>
-                            <td>
-                                <p>{{item+8}}</p>
-                                <span>{{surname_back[item+8]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="three_back" value="64"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="three_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-
-
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive" v-if="view">
-                <div class="four">
-                    <table border="1">
-                        <tr v-for="index in card4">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname[index[8]]}}</span>
-                            </td>
-                        </tr>
-
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="four" value="2"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="four" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="four">
-                    <table border="1">
-                        <tr v-for="index in card4">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname_back[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname_back[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname_back[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname_back[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname_back[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname_back[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname_back[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname_back[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname_back[index[8]]}}</span>
-                            </td>
-                        </tr>
-
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="four_back" value="2"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="four_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-
-
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-            <section class="positive" v-if="view">
-                <div class="five">
-                    <table border="1">
-                        <tr v-for="index in card5">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname[index[8]]}}</span>
-                            </td>
-                        </tr>
-
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="five" value="32"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="five" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="five">
-                    <table border="1">
-                        <tr v-for="index in card5">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname_back[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname_back[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname_back[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname_back[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname_back[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname_back[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname_back[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname_back[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname_back[index[8]]}}</span>
-                            </td>
-                        </tr>
-
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="five_back" value="32"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="five_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-
-
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-
-            <section class="positive" v-if="view">
-                <div class="six">
-                    <table border="1">
-                        <tr v-for="index in card6">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname[index[8]]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="six" value="8"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="six" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="six">
-                    <table border="1">
-                        <tr v-for="index in card6">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname_back[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname_back[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname_back[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname_back[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname_back[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname_back[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname_back[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname_back[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname_back[index[8]]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="six_back" value="8"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="six_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                </div>
-            </section>
-
-
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 card">
-
-            <section class="positive" v-if="view">
-                <div class="seven">
-                    <table border="1">
-                        <tr v-for="index in card7">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname[index[8]]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="seven" value="4"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="seven" value="0"><span style="color: white; display: inline-block;">无</span>
-                    <br>
-                    <button style="margin-left:35%;margin-top: 40px;" @click="caculate">点击得出你的姓氏</button>
-
-
-                </div>
-            </section>
-            <section class="back" v-if="seen">
-                <div class="seven">
-                    <table border="1">
-                        <tr v-for="index in card7">
-                            <td>
-                                <p>{{index[0]}}</p>
-                                <span>{{surname_back[index[0]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[1]}}</p>
-                                <span>{{surname_back[index[1]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[2]}}</p>
-                                <span>{{surname_back[index[2]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[3]}}</p>
-                                <span>{{surname_back[index[3]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[4]}}</p>
-                                <span>{{surname_back[index[4]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[5]}}</p>
-                                <span>{{surname_back[index[5]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[6]}}</p>
-                                <span>{{surname_back[index[6]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[7]}}</p>
-                                <span>{{surname_back[index[7]]}}</span>
-                            </td>
-                            <td>
-                                <p>{{index[8]}}</p>
-                                <span>{{surname_back[index[8]]}}</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
-                    <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                    <input type="radio" name="seven_back" value="4"><span style="color: white; display: inline-block;">有</span>
-                    <input type="radio" name="seven_back" value="0"><span style="color: white; display: inline-block;">无</span>
-                    <br>
-                    <button style="margin-left:35%;margin-top: 40px;" @click="caculate_back">点击得出你的稀有姓氏</button>
-                </div>
-            </section>
-
-
-        </div>
-
     </div>
 
 
