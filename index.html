@@ -23,6 +23,11 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <style>
+        body {
+            background: url(http://imgs.aixifan.com/o_1c7il0iijlh912mq74g1evu1hl62r.jpg)no-repeat fixed top;
+            background-size: 100% 100%;
+        }
+        
         td {
             background-color: aqua;
             width: 50px;
@@ -50,7 +55,8 @@
         
         .card {
             background-color: #2a2b38;
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
+            background-image: url("http://imgs.aixifan.com/o_1c7il0iij1vo15iriro7s51ttk2h.jpg");
+            background-size: 100% 100%;
             background-repeat: no-repeat;
             background-size: cover;
             height: 80%;
@@ -1020,13 +1026,13 @@
                     var result = this.surname[sum];
 
                     if (sum <= 126 && sum > 0 && result != undefined) { //如果在正常范围内
-                        alert("你的姓氏是:" + result);
+                        alert("唔哈哈哈,这一切都是命运石之门的选择!" + "\n" + "看来你的姓氏是:" + "\n" + result);
                     } else if (sum > 126 && result == undefined) { //不要随便更改顺序  
                         alert("请认真查看,不要全部选有") //全部选有
                     } else if (result == undefined) {
                         alert("请检查是否有未选择的地方");
                     } else if (sum == 0) {
-                        alert("您是稀有姓氏,请点击左上角按钮") //全部选无,sum为0
+                        alert("难道是机关的阴谋吗?竟然没有你的姓氏,那请点击左上角按钮!") //全部选无,sum为0
                     }
 
                 },
@@ -1069,13 +1075,13 @@
                     //第二种:选不全,并且,都选的无,则sumback不会等于0,因为会等于NaN,result_back自然等于undefined.
                     //第三种:大家全选有,相加之和超过126,则result_back等于undefined.
                     if (sum_back < 127 && sum_back > 0 && result_back != undefined) {
-                        alert("你的姓氏是:" + result_back);
+                        alert("唔哈哈哈,这一切都是命运石之门的选择!" + "\n" + "看来你的姓氏是:" + "\n" + result_back);
                     } else if (sum_back == 127 && result_back == undefined) {
                         alert("请认真查看,不要全部选有") //全部选有  OK
                     } else if ( /* sum_back == NaN &&  */ result_back == undefined) { //OK
                         alert("请检查是否有未选择的地方");
                     } else if (sum_back == 0) { //第一种  OK
-                        alert("看来您的姓氏真的很罕见哦!")
+                        alert("看来您的姓氏真的很罕见哦!嘛,毕辣石,很正常的")
                     }
                     /* else if (sum_back > 127) {
                                            alert("请认真查看,不要全部乱选有!")
