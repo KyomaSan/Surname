@@ -26,6 +26,7 @@
         [v-cloak] {
             display: none;
         }
+        
         body {
             background: url(http://imgs.aixifan.com/o_1c7il0iijlh912mq74g1evu1hl62r.jpg)no-repeat fixed top;
             background-size: 100% 100%;
@@ -148,6 +149,7 @@
             <div class="col-xs-4 col-xs-offset-4 card">
 
                 <section class="positive">
+
                     <div class="one">
                         <table border="1" v-for=" (item,index) in card1">
                             <tr>
@@ -191,13 +193,28 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center; width: 100%;">(1/7)</div>
                         <p style="color: seashell;font-size: 18px;width:100%;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="one" value="1"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="one" value="0"><span style="color: white; display: inline-block;">无</span>
 
+
+
+
+                        <input @click.self.stop="scrollWindow" type="radio" id="positive_one1" name="one" value="1">
+                        <label for="positive_one1">
+                                <span style="color: white; display: inline-block;">有</span>
+                            </label>
+
+
+                        <input id="positive_one2" @click.self.stop="scrollWindow" type="radio" name="one" value="0">
+
+                        <label for="positive_one2">
+                                 <span style="color: white; display: inline-block;">无</span>
+                            </label>
                     </div>
 
+
                 </section>
-                <section class="back" v-if="seen">
+
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="one">
                         <table border="1" v-for=" (item,index) in card1">
                             <tr>
@@ -241,10 +258,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(1/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="one_back" value="1"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="one_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="one_back" @click.self.stop="scrollWindow" value="1"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="one_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
             </div>
             <div class="col-xs-4 col-xs-offset-4 card">
                 <section class="positive">
@@ -315,11 +334,22 @@
 
                         <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="two" value="16"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="two" value="0"><span style="color: white; display: inline-block;">无</span>
+
+                        <input id="positive_two1" @click.self.stop="scrollWindow" type="radio" name="two" value="16">
+                        <label for="positive_two1">
+                            <span style="color: white; display: inline-block;">有</span>
+                            </label>
+
+
+                        <input id="positive_two2" @click.self.stop="scrollWindow" type="radio" name="two" value="0">
+                        <label for="positive_two2">
+                                <span style="color: white; display: inline-block;">无</span>
+                            </label>
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="two">
                         <table border="1">
                             <tr>
@@ -386,10 +416,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(2/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="two_back" value="16"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="two_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="two_back" @click.self.stop="scrollWindow" value="16"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="two_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -438,11 +470,21 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="three" value="64"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="three" value="0"><span style="color: white; display: inline-block;">无</span>
+
+                        <input id="positive_three1" @click.self.stop="scrollWindow" type="radio" name="three" value="64">
+                        <label for="positive_three1">
+                         <span style="color: white; display: inline-block;">有</span>
+                        </label>
+
+                        <input id="positive_three2" @click.self.stop="scrollWindow" type="radio" name="three" value="0">
+                        <label for="positive_three2">
+                            <span style="color: white; display: inline-block;">无</span>
+                        </label>
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="three">
                         <table border="1" v-for=" (item,index) in card3">
                             <tr>
@@ -486,10 +528,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(3/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="three_back" value="64"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="three_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="three_back" @click.self.stop="scrollWindow" value="64"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="three_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -539,11 +583,23 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="four" value="2"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="four" value="0"><span style="color: white; display: inline-block;">无</span>
+
+
+                        <input id="positive_four1" @click.self.stop="scrollWindow" type="radio" name="four" value="2">
+                        <label for="positive_four1">
+                            <span style="color: white; display: inline-block;">有</span>
+                       </label>
+
+
+                        <input id="positive_four2" @click.self.stop="scrollWindow" type="radio" name="four" value="0">
+                        <label for="positive_four2">
+                        <span style="color: white; display: inline-block;">无</span>
+                        </label>
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="four">
                         <table border="1">
                             <tr v-for="index in card4">
@@ -588,10 +644,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(4/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="four_back" value="2"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="four_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="four_back" @click.self.stop="scrollWindow" value="2"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="four_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -641,11 +699,22 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="five" value="32"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="five" value="0"><span style="color: white; display: inline-block;">无</span>
+
+
+
+
+                        <input id="positive_five1" @click.self.stop="scrollWindow" type="radio" name="five" value="32">
+                        <label for="positive_five1"> <span style="color: white; display: inline-block;">有</span>
+                       </label>
+
+                        <input id="positive_five2" @click.self.stop="scrollWindow" type="radio" name="five" value="0">
+                        <label for="positive_five2"> <span style="color: white; display: inline-block;">无</span>
+                        </label>
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="five">
                         <table border="1">
                             <tr v-for="index in card5">
@@ -690,10 +759,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(5/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="five_back" value="32"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="five_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="five_back" @click.self.stop="scrollWindow" value="32"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="five_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -743,11 +814,18 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="six" value="8"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="six" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input id="positive_six1" @click.self.stop="scrollWindow" type="radio" name="six" value="8">
+                        <label for="positive_six1"> <span style="color: white; display: inline-block;">有</span>
+                       </label>
+
+                        <input id="positive_six2" @click.self.stop="scrollWindow" type="radio" name="six" value="0">
+                        <label for="positive_six2"> <span style="color: white; display: inline-block;">无</span>
+                        </label>
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="six">
                         <table border="1">
                             <tr v-for="index in card6">
@@ -791,10 +869,12 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(6/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="six_back" value="8"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="six_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="six_back" @click.self.stop="scrollWindow" value="8"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="six_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -844,15 +924,25 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="seven" value="4"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="seven" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input id="positive_seven1" @click.self.stop="scrollWindow" type="radio" name="seven" value="4">
+                        <label for="positive_seven1"> 
+                            <span style="color: white; display: inline-block;">有</span>
+                       </label>
+
+                        <input id="positive_seven2" @click.self.stop="scrollWindow" type="radio" name="seven" value="0">
+                        <label for="positive_seven2"> 
+                            <span style="color: white; display: inline-block;">无</span>
+                        </label>
                         <br>
                         <button style="margin-left:35%;margin-top: 40px;" @click="caculate">点击得出你的姓氏</button>
 
 
+
                     </div>
+
                 </section>
-                <section class="back" v-if="seen">
+
+                <section class="back" @click.self.stop="scrollWindow" v-if="seen">
                     <div class="seven">
                         <table border="1">
                             <tr v-for="index in card7">
@@ -896,12 +986,15 @@
                         </table>
                         <div style="color: red;font-size: 24px;text-align: center;">(7/7)</div>
                         <p style="color: seashell;font-size: 20px;">这一张有你的姓氏吗?</p>
-                        <input type="radio" name="seven_back" value="4"><span style="color: white; display: inline-block;">有</span>
-                        <input type="radio" name="seven_back" value="0"><span style="color: white; display: inline-block;">无</span>
+                        <input type="radio" name="seven_back" @click.self.stop="scrollWindow" value="4"><span style="color: white; display: inline-block;">有</span>
+                        <input type="radio" name="seven_back" @click.self.stop="scrollWindow" value="0"><span style="color: white; display: inline-block;">无</span>
                         <br>
-                        <button style="margin-left:35%;margin-top: 40px;" @click="caculate_back">点击得出你的稀有姓氏</button>
+                        <button style="margin-left:35%;margin-top: 40px;" @click="caculate_back" @click.self.stop="scrollWindow">点击得出你的稀有姓氏</button>
+
                     </div>
+
                 </section>
+
 
 
             </div>
@@ -913,6 +1006,7 @@
 
     <script>
         var app = new Vue({
+
             el: "#app",
             data: {
                 card1: [1, 19, 37, 55, 73, 91, 109],
@@ -1111,7 +1205,11 @@
 
                     }
 
-                }
+                },
+                scrollWindow: function(e) {
+                    window.scrollBy(0, 570);
+                },
+
             }
 
         })
